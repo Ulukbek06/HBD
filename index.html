@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>С днём рождения</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app" id="app" aria-live="polite">
+    <!-- Экран 1 -->
+    <section class="screen is-active" data-screen="1">
+      <div class="card">
+        <img class="card__img card__img--top" id="screen1Image" alt="" />
+
+        <h1 class="title">
+          <span id="screen1TitleLine1"></span><br>
+          <span class="title__accent" id="screen1TitleLine2"></span>
+        </h1>
+
+        <p class="hint" id="screen1Hint"></p>
+
+        <button class="btn btn--primary" id="btnNext" type="button"></button>
+
+        <div class="music-row">
+          <button class="btn btn--music" id="btnMusicStart" type="button" aria-pressed="false"></button>
+          <p class="music-question" id="musicQuestion"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="2">
+      <div class="card">
+    
+        <img class="card__img" id="screen2ImageTop" alt="" />
+        <img class="card__img" id="screen2ImageBottom" alt="" />
+    
+        <p class="question" id="screen2Question"></p>
+    
+        <div class="btn-row">
+          <button class="btn btn--primary" id="btnOpenYes" type="button"></button>
+          <button class="btn btn--secondary" id="btnOpenNo" type="button"></button>
+        </div>
+    
+        <button class="btn btn--back" id="btnBackFrom2" type="button"></button>
+    
+      </div>
+    </section>
+
+    <!-- Экран 3 -->
+    <section class="screen" data-screen="3">
+      <div class="card">
+        <img class="card__img card__img--top" id="screen3Image" alt="" />
+        <p class="sad" id="screen3Text"></p>
+
+        <button class="btn btn--back" id="btnBackFrom3" type="button"></button>
+      </div>
+    </section>
+
+    <!-- Экран 4 -->
+    <section class="screen" data-screen="4">
+      <div class="screen4">
+
+        <!-- Полноэкранные шарики -->
+        <div
+          class="balloon-stage-full"
+          id="balloonStage"
+          aria-hidden="false"
+          style="pointer-events:none;"
+        ></div>
+
+        <!-- Фото по центру + субтитры снизу -->
+        <div
+          class="after-stage is-hidden"
+          id="afterStage"
+          style="pointer-events:none;"
+        >
+          <div class="after-stage__photo-wrap">
+            <img class="after-stage__photo" id="screen4Image" alt="" />
+          </div>
+
+          <div class="subtitles" id="subtitles" style="pointer-events:none;"></div>
+        </div>
+
+        <!-- Управление: фиксируем поверх всех слоев -->
+        <div
+          class="screen4-controls"
+          style="position:fixed; left:0; right:0; bottom:16px; z-index:9999; pointer-events:none;"
+        >
+          <div style="display:flex; gap:10px; justify-content:center; pointer-events:auto;">
+            <button class="btn btn--ghost" id="btnBackFrom4" type="button" style="pointer-events:auto;">Назад</button>
+            <button class="btn btn--ghost" id="btnMusicToggle" type="button" aria-pressed="false" style="pointer-events:auto;"></button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <audio id="bgMusic" preload="auto"></audio>
+
+  <script src="./app.js"></script>
+</body>
+</html>
